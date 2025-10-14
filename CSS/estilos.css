@@ -4,7 +4,7 @@
   --red: #C92C23;
   --black: #1C1C1C;
   --vanilla: #FFF3B0;
-  --gray: #8A8D91;
+  --gray: #c1c7cd;
 }
 
 body {
@@ -119,6 +119,12 @@ body::before {
   text-align: center;
 }
 
+.nosotros {
+
+  text-align: justify;
+
+}
+
 header h1 {
   font-size: 8rem;
   margin: 0;
@@ -126,7 +132,7 @@ header h1 {
 }
 
 header h2 {
-  font-size: 1.3rem;
+  font-size: 2rem;
   font-weight: 400;
   color: var(--gray);
   margin-bottom: 2rem;
