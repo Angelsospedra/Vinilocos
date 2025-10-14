@@ -5,7 +5,10 @@ document.addEventListener("DOMContentLoaded", function() {
   if (vinylBtn && sidebar) {
     vinylBtn.addEventListener("click", () => {
       sidebar.classList.toggle("open");
-      vinylBtn.classList.toggle("active");
+      vinylBtn.classList.add("active");
+      setTimeout(() => {
+        vinylBtn.classList.remove("active");
+      }, 600); // 1 segundo
     });
   } else {
     console.error("No se encontró el botón o el sidebar.");
