@@ -306,3 +306,31 @@ header h2 {
   color: #888;
   text-align: center;
 }
+
+.mapa-contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  margin: 2rem 0;
+}
+
+.mapa {
+  flex: 1 1 50%;
+  height: 400px;
+  min-width: 300px;
+}
+
+.info-contacto {
+  flex: 1 1 45%;
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .mapa-contenedor {
+    flex-direction: column;
+  }
+  .mapa, .info-contacto {
+    flex: 1 1 100%;
+  }
+}
