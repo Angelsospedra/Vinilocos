@@ -108,6 +108,21 @@ body::before {
 .sidebar ul li a:hover {
   color: var(--gray);
 }
+
+.sidebar ul li a.btn-admin {
+  background-color: var(--red);
+  color: var(--vanilla);
+  padding: 0.8rem 1.2rem;
+  border-radius: 30px;
+  display: inline-block;
+  margin-top: 1rem;
+  transition: background-color 0.3s;
+}
+
+.sidebar ul li a.btn-admin:hover {
+  background-color: var(--gray);
+  color: var(--black);
+}
  
 /* === CONTENIDO === */
 .content {
@@ -458,6 +473,106 @@ header h2 {
 .footer-section:nth-child(2) ul {
   padding: 0;
   text-align: left;
+}
+
+/* === LOGIN === */
+.login-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 2rem;
+  background: rgba(28, 28, 28, 0.95);
+  border-radius: 10px;
+  border: 2px solid var(--red);
+}
+
+.login-container h2 {
+  text-align: center;
+  color: var(--vanilla);
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  color: var(--vanilla);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--vanilla);
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--red);
+}
+
+.form-group input::placeholder {
+  color: rgba(255, 249, 241, 0.5);
+}
+
+.btn-login {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--red);
+  color: var(--vanilla);
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+}
+
+.btn-login:hover {
+  background-color: var(--gray);
+  color: var(--black);
+}
+
+.btn-volver {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--gray);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.btn-volver:hover {
+  color: var(--vanilla);
+}
+
+.mensaje {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.mensaje.exitoso {
+  background-color: rgba(76, 175, 80, 0.2);
+  border: 1px solid rgba(76, 175, 80, 0.5);
+  color: #4CAF50;
+}
+
+.mensaje.error {
+  background-color: rgba(201, 44, 35, 0.2);
+  border: 1px solid rgba(201, 44, 35, 0.5);
+  color: var(--red);
 }
 
 .footer-section:nth-child(2) ul li {
