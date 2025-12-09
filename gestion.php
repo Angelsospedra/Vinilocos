@@ -9,7 +9,8 @@
         artista VARCHAR(100) NOT NULL,
         precio DECIMAL(6,2) NOT NULL,
         anio INT(4) NOT NULL,
-        foto VARCHAR(255)
+        foto VARCHAR(255),
+        visible TINYINT(1) DEFAULT 1
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci";
 
     $conn->query($sql_create);
@@ -126,6 +127,23 @@
         }
     }
 
+    // Cambiar visibilidad del vinilo
+    if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["cambiar_visibilidad_id"])) {
+        $id = $_POST["cambiar_visibilidad_id"];
+        $sql = "UPDATE catalogo SET visible = NOT visible WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        
+        if ($stmt->execute()) {
+            header("Location: gestion.php?modo=listar");
+            exit();
+        } else {
+            $mensaje = "Error al cambiar visibilidad del vinilo.";
+            $tipo_mensaje = "error";
+        }
+        $stmt->close();
+    }
+
     // Eliminar vinilo
     if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminar_id"])) {
         $id = $_POST["eliminar_id"];
@@ -143,9 +161,22 @@
         $stmt->close();
     }
 
-    // Obtener todos los vinilos
-    $sql = "SELECT id, nombre, descripcion, artista, precio, anio, foto FROM catalogo";
-    $result = $conn->query($sql);
+    // Obtener término de búsqueda
+    $busqueda = isset($_GET['busqueda']) ? trim($_GET['busqueda']) : '';
+
+    // Obtener todos los vinilos o filtrar por búsqueda
+    if ($busqueda) {
+        $busqueda_param = "%$busqueda%";
+        $sql = "SELECT id, nombre, descripcion, artista, precio, anio, foto, visible FROM catalogo WHERE nombre LIKE ? OR artista LIKE ? OR descripcion LIKE ? ORDER BY nombre";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sss", $busqueda_param, $busqueda_param, $busqueda_param);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+    } else {
+        $sql = "SELECT id, nombre, descripcion, artista, precio, anio, foto, visible FROM catalogo ORDER BY nombre";
+        $result = $conn->query($sql);
+    }
     ?>
 
     <!DOCTYPE html>
@@ -250,6 +281,15 @@
         <!-- TABLA LISTAR -->
         <?php else: ?>
         <div class="tabla-container">
+            <div class="buscador-container">
+                <form method="GET" class="form-buscador">
+                    <input type="text" name="busqueda" placeholder="Buscar por nombre, artista o descripción..." value="<?php echo htmlspecialchars($busqueda); ?>" class="input-buscador">
+                    <button type="submit" class="btn-buscar">Buscar</button>
+                    <?php if ($busqueda): ?>
+                    <a href="gestion.php?modo=listar" class="btn-limpiar">Limpiar</a>
+                    <?php endif; ?>
+                </form>
+            </div>
         <table class="tabla-vinilos">
             <thead>
             <tr>
@@ -259,6 +299,7 @@
                 <th>Descripción</th>
                 <th>Precio</th>
                 <th>Año</th>
+                <th>Visible</th>
                 <th>Acciones</th>
             </tr>
             </thead>
@@ -278,6 +319,14 @@
                     echo "<td>€" . number_format($row["precio"], 2) . "</td>";
                     echo "<td>" . $row["anio"] . "</td>";
                     echo "<td>";
+                    echo "<form method='POST' style='display:inline;'>";
+                    echo "<input type='hidden' name='cambiar_visibilidad_id' value='" . $row["id"] . "'>";
+                    $estado = $row["visible"] ? "Visible" : "Oculto";
+                    $clase = $row["visible"] ? "btn-visible" : "btn-oculto";
+                    echo "<button type='submit' class='btn-visibilidad $clase'>$estado</button>";
+                    echo "</form>";
+                    echo "</td>";
+                    echo "<td>";
                     echo "<a href='gestion.php?modo=editar&id=" . $row["id"] . "' class='btn-editar'>Editar</a>";
                     echo "<form method='POST' style='display:inline;'>";
                     echo "<input type='hidden' name='eliminar_id' value='" . $row["id"] . "'>";
@@ -287,7 +336,7 @@
                     echo "</tr>";
                 }
             } else {
-                echo "<tr><td colspan='7' style='text-align:center; padding: 2rem;'>No hay vinilos registrados.</td></tr>";
+                echo "<tr><td colspan='8' style='text-align:center; padding: 2rem;'>No hay vinilos registrados.</td></tr>";
             }
             ?>
             </tbody>
@@ -352,7 +401,5 @@
         });
         });
     </script>
-
     </body>
-
     </html>

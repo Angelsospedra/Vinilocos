@@ -23,8 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // Verificar contraseña
         if ($pass === $hash_guardado) {
-            $mensaje = "Login correcto. Bienvenido, $nombre.";
-            $tipo_mensaje = "exitoso";
+            header("Location: gestion.php");
+            exit();
         } else {
             $mensaje = "Contraseña incorrecta.";
             $tipo_mensaje = "error";
