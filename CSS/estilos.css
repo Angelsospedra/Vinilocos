@@ -575,6 +575,216 @@ header h2 {
   color: var(--red);
 }
 
+/* === TABLA VINILOS === */
+.tabla-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.tabla-vinilos {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(28, 28, 28, 0.9);
+  border: 2px solid var(--red);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.tabla-vinilos thead {
+  background-color: var(--red);
+}
+
+.tabla-vinilos th {
+  color: var(--vanilla);
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.tabla-vinilos td {
+  color: var(--vanilla);
+  padding: 1rem;
+  border-bottom: 1px solid rgba(201, 44, 35, 0.3);
+}
+
+.tabla-vinilos tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tabla-vinilos tbody tr:hover {
+  background-color: rgba(201, 44, 35, 0.1);
+}
+
+.btn-eliminar {
+  background-color: var(--red);
+  color: var(--vanilla);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-eliminar:hover {
+  background-color: var(--gray);
+  color: var(--black);
+}
+
+/* === FORMULARIO VINILOS === */
+.nav-gestion {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.nav-gestion .btn {
+  background-color: var(--gray);
+  color: var(--black);
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.nav-gestion .btn.activo {
+  background-color: var(--red);
+  color: var(--vanilla);
+}
+
+.nav-gestion .btn:hover {
+  background-color: var(--red);
+  color: var(--vanilla);
+}
+
+.form-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(28, 28, 28, 0.95);
+  border: 2px solid var(--red);
+  border-radius: 10px;
+}
+
+.form-container h2 {
+  color: var(--vanilla);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-vinilo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group label {
+  color: var(--vanilla);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"],
+.form-group input[type="file"],
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--vanilla);
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--red);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.foto-actual {
+  color: var(--gray);
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.btn-submit,
+.btn-cancel {
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+}
+
+.btn-submit {
+  background-color: var(--red);
+  color: var(--vanilla);
+}
+
+.btn-submit:hover {
+  background-color: var(--gray);
+  color: var(--black);
+}
+
+.btn-cancel {
+  background-color: var(--gray);
+  color: var(--black);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-cancel:hover {
+  background-color: var(--red);
+  color: var(--vanilla);
+}
+
+.btn-editar {
+  background-color: var(--vanilla);
+  color: var(--black);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  margin-right: 0.5rem;
+  transition: all 0.3s;
+}
+
+.btn-editar:hover {
+  background-color: var(--gray);
+}
+
+.tabla-foto {
+  max-width: 60px;
+  max-height: 60px;
+  border-radius: 5px;
+}
+
 .footer-section:nth-child(2) ul li {
   margin: 0.5rem 0;
 }
