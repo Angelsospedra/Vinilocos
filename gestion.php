@@ -358,7 +358,7 @@
             <li><a href="index.html">Inicio</a></li>
             <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
             <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="#">Catálogo</a></li>
+            <li><a href="catalogo.php">Catálogo</a></li>
             </ul>
         </div>
 
