@@ -66,6 +66,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <li><a href="index.html">Inicio</a></li>
         <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
         <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="catalogo.php">Catálogo</a></li>
+        <li><a href="login.php" class="btn-admin">Acceso admin</a></li>
       </ul>
     </nav>
   </aside>

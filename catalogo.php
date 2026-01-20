@@ -14,11 +14,37 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="IMG/favicon.png">
     <link rel="stylesheet" href="CSS/estilos.css">
     <title>Catálogo - Vinilocos</title>
 </head>
 <body>
-    <h1>Catálogo de Vinilos</h1>
+
+    <!-- Botón hamburguesa (vinilo giratorio) -->
+    <div class="vinyl-btn" id="menuToggle">
+        <img src="IMG/icono desplegable.png" alt="Menú Vinilo">
+    </div>
+
+    <!-- Menú lateral -->
+    <aside class="sidebar" id="sidebar">
+        <img src="IMG/whitelogo.png" alt="Logo Vinilocos" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="catalogo.php">Catálogo</a></li>
+                <li><a href="login.php" class="btn-admin">Acceso admin</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="content">
+        <header>
+            <h1>Vinilocos</h1>
+            <h2>Catálogo de Vinilos</h2>
+        </header>
     
     <?php if ($result && $result->num_rows > 0): ?>
         <div class="catalogo-container">
@@ -48,6 +74,54 @@ $result = $conn->query($sql);
     <?php else: ?>
         <p>No hay vinilos visibles en este momento.</p>
     <?php endif; ?>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Columna 1: Logo y lema -->
+            <div class="footer-section">
+                <img src="IMG/whitelogo.png" alt="Logo Vinilocos" class="footer-logo">
+                <p class="footer-tagline">Donde la música nunca pasa de moda 🎶</p>
+            </div>
+
+            <!-- Columna 2: Navegación -->
+            <div class="footer-section">
+                <h3>Explora</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="catalogo.php">Catálogo</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Contacto -->
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>Email: <a href="mailto:info@vinilocos.com">info@vinilocos.com</a></p>
+                <p>Tel: <a href="tel:+34123456789">+34 123 456 789</a></p>
+                <p>Madrid, España</p>
+            </div>
+
+            <!-- Columna 4: Redes sociales -->
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><img src="IMG/facebook.png" alt="Facebook"></a>
+                    <a href="#" aria-label="Instagram"><img src="IMG/instagram.png" alt="Instagram"></a>
+                    <a href="#" aria-label="Twitter"><img src="IMG/twitter.png" alt="Twitter"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Vinilocos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Enlazamos el script al final -->
+    <script src="JS/main.js"></script>
     
     <?php
     $conn->close();
