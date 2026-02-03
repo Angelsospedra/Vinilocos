@@ -63,9 +63,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <img src="IMG/whitelogo.png" alt="Logo Vinilocos" class="logo">
     <nav>
       <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="https://vinilocos-g8aa.vercel.app/">Inicio</a></li>
+        <li><a href="https://vinilocos-g8aa.vercel.app/sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="https://vinilocos-g8aa.vercel.app/contacto.html">Contacto</a></li>
         <li><a href="https://vinilocos-production.up.railway.app/frontend/catalogo.php">Catálogo</a></li>
         <li><a href="https://vinilocos-production.up.railway.app/frontend/login.php" class="btn-admin">Acceso admin</a></li>
       </ul>
