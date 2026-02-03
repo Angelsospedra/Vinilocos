@@ -194,12 +194,12 @@
 
     <!-- Botón hamburguesa (vinilo giratorio) -->
     <div class="vinyl-btn" id="menuToggle">
-        <img src="../frontend/IMG/icono desplegable.png" alt="Menú Vinilo">
+        <img src="https://vinilocos-parallax.vercel.app/IMG/icono desplegable.png" alt="Menú Vinilo">
     </div>
 
     <!-- Menú lateral -->
     <aside class="sidebar" id="sidebar">
-        <img src="../frontend/IMG/whitelogo.png" alt="Logo Vinilocos" class="logo">
+        <img src="https://vinilocos-parallax.vercel.app/IMG/whitelogo.png" alt="Logo Vinilocos" class="logo">
         <nav>
         <ul>
             <li><a href="../frontend/index.html">Inicio</a></li>
@@ -349,7 +349,7 @@
     <footer class="footer">
         <div class="footer-container">
         <div class="footer-section">
-            <img src="../frontend/IMG/whitelogo.png" alt="Logo Vinilocos" class="footer-logo">
+            <img src="https://vinilocos-parallax.vercel.app/IMG/whitelogo.png" alt="Logo Vinilocos" class="footer-logo">
             <p class="footer-tagline">Donde la música nunca pasa de moda 🎶</p>
         </div>
 
@@ -373,9 +373,9 @@
         <div class="footer-section">
             <h3>Síguenos</h3>
             <div class="social-links">
-            <a href="#" aria-label="Facebook"><img src="../frontend/IMG/facebook.png" alt="Facebook"></a>
-            <a href="#" aria-label="Instagram"><img src="../frontend/IMG/instagram.png" alt="Instagram"></a>
-            <a href="#" aria-label="Twitter"><img src="../frontend/IMG/twitter.png" alt="Twitter"></a>
+            <a href="#" aria-label="Facebook"><img src="https://vinilocos-parallax.vercel.app/IMG/facebook.png" alt="Facebook"></a>
+            <a href="#" aria-label="Instagram"><img src="https://vinilocos-parallax.vercel.app/IMG/instagram.png" alt="Instagram"></a>
+            <a href="#" aria-label="Twitter"><img src="https://vinilocos-parallax.vercel.app/IMG/twitter.png" alt="Twitter"></a>
             </div>
         </div>
         </div>
