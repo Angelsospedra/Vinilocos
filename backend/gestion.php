@@ -83,27 +83,6 @@
     }
     $stmt->close();
             } elseif ($accion == "modificar" && $id_para_modificar) {
-                if ($foto_ruta) {
-                    // Actualizar incluyendo la foto
-                    $sql = "UPDATE catalogo SET nombre=?, descripcion=?, artista=?, precio=?, anio=?, foto=? WHERE id=?";
-                    $stmt = $conn->prepare($sql);
-                    $stmt->bind_param("sssdisi", $nombre, $descripcion, $artista, $precio, $anio, $foto_ruta, $id_para_modificar);
-                } else {
-                    // Actualizar sin cambiar la foto
-                    $sql = "UPDATE catalogo SET nombre=?, descripcion=?, artista=?, precio=?, anio=? WHERE id=?";
-                    $stmt = $conn->prepare($sql);
-                    $stmt->bind_param("sssdi", $nombre, $descripcion, $artista, $precio, $anio, $id_para_modificar);
-                }
-
-                if ($stmt->execute()) {
-                    header("Location: gestion.php?modo=listar");
-                    exit();
-                } else {
-                    $mensaje = "Error al modificar el vinilo: " . $stmt->error;
-                    $tipo_mensaje = "error";
-                }
-                $stmt->close();
-            } elseif ($accion == "modificar" && $id_para_modificar) {
             if ($foto_ruta) {
                 // Si hay foto nueva, actualizar incluyendo la foto
                 $sql = "UPDATE catalogo SET nombre=?, descripcion=?, artista=?, precio=?, anio=?, foto=? WHERE id=?";
