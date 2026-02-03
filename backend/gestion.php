@@ -202,7 +202,7 @@
 
         <!-- Botones de navegación -->
         <div class="nav-gestion">
-        <a href="gestion.php?modo=listar" class="btn <?php echo $modo == 'listar' ? 'activo' : ''; ?>">Ver Catálogo</a>
+        <a href="https://vinilocos-production.up.railway.app/frontend/catalogo.php" class="btn">Ver Catálogo</a>
         <a href="gestion.php?modo=añadir" class="btn <?php echo $modo == 'añadir' ? 'activo' : ''; ?>">Añadir Vinilo</a>
         </div>
 
