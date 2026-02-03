@@ -1,3 +1,6 @@
+// Configuración del Backend URL para Railway
+const BACKEND_URL = 'https://vinilocos-production.up.railway.app';
+
 document.addEventListener("DOMContentLoaded", function() {
   const vinylBtn = document.getElementById("menuToggle");
   const sidebar = document.getElementById("sidebar");
