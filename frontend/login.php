@@ -1,5 +1,5 @@
 <?php
-require "conexion.php";
+require "../backend/conexion.php";
 
 $mensaje = "";
 $tipo_mensaje = "";
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // Verificar contraseña
         if ($pass === $hash_guardado) {
-            header("Location: gestion.php");
+            header("Location: ../backend/gestion.php");
             exit();
         } else {
             $mensaje = "Contraseña incorrecta.";

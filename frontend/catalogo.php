@@ -1,5 +1,5 @@
 <?php
-require "conexion.php";
+require "../backend/conexion.php";
 
 // Obtener todos los vinilos marcados como visibles
 $sql = "SELECT nombre, descripcion, artista, precio, anio, foto 

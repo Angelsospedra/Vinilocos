@@ -1,9 +1,12 @@
 <?php
 
-$host=getenv('MYSQLHOST');
-$user=getenv('MYSQLUSER');
-$pass=getenv('MYSQLPASSWORD');
-$db=getenv('MYSQLDATABASE');
+// Cargar configuración
+$config = require 'config.php';
+
+$host = $config['host'];
+$user = $config['user'];
+$pass = $config['pass'];
+$db = $config['db'];
 
 //Conexión
 $conn = new mysqli($host, $user, $pass, $db);

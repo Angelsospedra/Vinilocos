@@ -48,7 +48,7 @@
             // Guardar solo el nombre relativo dentro de IMG/ sin renombrar ni duplicar
             $nombre_foto = $_FILES["foto"]["name"];
             $tmp_foto = $_FILES["foto"]["tmp_name"];
-            $foto_ruta = "IMG/" . $nombre_foto;
+            $foto_ruta = "../frontend/IMG/" . $nombre_foto;
 
             // Mover solo si no existe ya
             if (!file_exists($foto_ruta)) {
@@ -185,8 +185,8 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="IMG/favicon.png">
-    <link rel="stylesheet" href="CSS/estilos.css">
+    <link rel="icon" href="../frontend/IMG/favicon.png">
+    <link rel="stylesheet" href="../frontend/CSS/estilos.css">
     <title>Gestión de Vinilos - Vinilocos</title>
     </head>
 
@@ -194,19 +194,19 @@
 
     <!-- Botón hamburguesa (vinilo giratorio) -->
     <div class="vinyl-btn" id="menuToggle">
-        <img src="IMG/icono desplegable.png" alt="Menú Vinilo">
+        <img src="../frontend/IMG/icono desplegable.png" alt="Menú Vinilo">
     </div>
 
     <!-- Menú lateral -->
     <aside class="sidebar" id="sidebar">
-        <img src="IMG/whitelogo.png" alt="Logo Vinilocos" class="logo">
+        <img src="../frontend/IMG/whitelogo.png" alt="Logo Vinilocos" class="logo">
         <nav>
         <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="catalogo.php">Catálogo</a></li>
-            <li><a href="login.php" class="btn-admin">Acceso admin</a></li>
+            <li><a href="../frontend/index.html">Inicio</a></li>
+            <li><a href="../frontend/sobre-nosotros.html">Sobre nosotros</a></li>
+            <li><a href="../frontend/contacto.html">Contacto</a></li>
+            <li><a href="../frontend/catalogo.php">Catálogo</a></li>
+            <li><a href="../frontend/login.php" class="btn-admin">Acceso admin</a></li>
         </ul>
         </nav>
     </aside>
@@ -349,17 +349,17 @@
     <footer class="footer">
         <div class="footer-container">
         <div class="footer-section">
-            <img src="IMG/whitelogo.png" alt="Logo Vinilocos" class="footer-logo">
+            <img src="../frontend/IMG/whitelogo.png" alt="Logo Vinilocos" class="footer-logo">
             <p class="footer-tagline">Donde la música nunca pasa de moda 🎶</p>
         </div>
 
         <div class="footer-section">
             <h3>Explora</h3>
             <ul class="footer-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="catalogo.php">Catálogo</a></li>
+            <li><a href="../frontend/index.html">Inicio</a></li>
+            <li><a href="../frontend/sobre-nosotros.html">Sobre nosotros</a></li>
+            <li><a href="../frontend/contacto.html">Contacto</a></li>
+            <li><a href="../frontend/catalogo.php">Catálogo</a></li>
             </ul>
         </div>
 
@@ -373,9 +373,9 @@
         <div class="footer-section">
             <h3>Síguenos</h3>
             <div class="social-links">
-            <a href="#" aria-label="Facebook"><img src="IMG/facebook.png" alt="Facebook"></a>
-            <a href="#" aria-label="Instagram"><img src="IMG/instagram.png" alt="Instagram"></a>
-            <a href="#" aria-label="Twitter"><img src="IMG/twitter.png" alt="Twitter"></a>
+            <a href="#" aria-label="Facebook"><img src="../frontend/IMG/facebook.png" alt="Facebook"></a>
+            <a href="#" aria-label="Instagram"><img src="../frontend/IMG/instagram.png" alt="Instagram"></a>
+            <a href="#" aria-label="Twitter"><img src="../frontend/IMG/twitter.png" alt="Twitter"></a>
             </div>
         </div>
         </div>
