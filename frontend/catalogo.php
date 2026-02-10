@@ -89,26 +89,34 @@ $result = $conn->query($sql);
         <!-- MODAL RESEÑAS -->
         <div class="modal" id="modalResena">
             <div class="modal-content">
-                <span class="close-modal">&times;</span>
+                <button class="close-modal" aria-label="Cerrar">×</button>
 
-                <h3>Dejar una reseña</h3>
+                <h3 class="modal-title">Dejar una reseña</h3>
+                <p class="modal-subtitle">Cuéntanos qué te ha parecido este vinilo</p>
 
-                <form action="guardar_opinion.php" method="POST">
+                <form action="guardar_opinion.php" method="POST" class="modal-form">
                     <input type="hidden" name="viniloId" id="modalViniloId">
 
-                    <label>Nombre</label>
-                    <input type="text" name="nombre" required>
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" name="nombre" placeholder="Tu nombre" required>
+                    </div>
 
-                    <label>Ciudad</label>
-                    <input type="text" name="ciudad" required>
+                    <div class="form-group">
+                        <label>Ciudad</label>
+                        <input type="text" name="ciudad" placeholder="Tu ciudad" required>
+                    </div>
 
-                    <label>Comentario</label>
-                    <textarea name="comentario" required></textarea>
+                    <div class="form-group">
+                        <label>Comentario</label>
+                        <textarea name="comentario" rows="4" placeholder="Escribe tu opinión..." required></textarea>
+                    </div>
 
-                    <button type="submit">Enviar opinión</button>
+                    <button type="submit" class="btn-enviar">Enviar opinión</button>
                 </form>
             </div>
         </div>
+
 
     </main>
 
