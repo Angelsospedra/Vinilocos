@@ -30,9 +30,9 @@ $result = $conn->query($sql);
         <img src="IMG/whitelogo.png" alt="Logo Vinilocos" class="logo">
         <nav>
             <ul>
-                <li><a href="https://vinilocos-g8aa.vercel.app/">Inicio</a></li>
-                <li><a href="https://vinilocos-g8aa.vercel.app/sobre-nosotros.html">Sobre nosotros</a></li>
-                <li><a href="https://vinilocos-g8aa.vercel.app/contacto.html">Contacto</a></li>
+                <li><a href="https://vinilocos-parallax.vercel.app/">Inicio</a></li>
+                <li><a href="https://vinilocos-parallax.vercel.app/sobre-nosotros.html">Sobre nosotros</a></li>
+                <li><a href="https://vinilocos-parallax.vercel.app/contacto.html">Contacto</a></li>
                 <li><a href="catalogo.php">Catálogo</a></li>
                 <li><a href="login.php" class="btn-admin">Acceso admin</a></li>
             </ul>
