@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-01-2026 a las 10:45:10
+-- Tiempo de generación: 10-02-2026 a las 10:49:21
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -55,6 +55,21 @@ INSERT INTO `catalogo` (`id`, `nombre`, `descripcion`, `artista`, `precio`, `ani
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `opiniones`
+--
+
+CREATE TABLE `opiniones` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `ciudad` varchar(100) NOT NULL,
+  `comentario` text NOT NULL,
+  `viniloId` int(11) NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -84,6 +99,13 @@ ALTER TABLE `catalogo`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `opiniones`
+--
+ALTER TABLE `opiniones`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `viniloId` (`viniloId`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -100,10 +122,26 @@ ALTER TABLE `catalogo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
+-- AUTO_INCREMENT de la tabla `opiniones`
+--
+ALTER TABLE `opiniones`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `opiniones`
+--
+ALTER TABLE `opiniones`
+  ADD CONSTRAINT `opiniones_ibfk_1` FOREIGN KEY (`viniloId`) REFERENCES `catalogo` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
