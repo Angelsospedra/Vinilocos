@@ -94,7 +94,7 @@ $result = $conn->query($sql);
                 <h3 class="modal-title">Dejar una reseña</h3>
                 <p class="modal-subtitle">Cuéntanos qué te ha parecido este vinilo</p>
 
-                <form action="guardar_opinion.php" method="POST" class="modal-form">
+                <form id="formResena" class="modal-form">
                     <input type="hidden" name="viniloId" id="modalViniloId">
 
                     <div class="form-group">
@@ -113,6 +113,8 @@ $result = $conn->query($sql);
                     </div>
 
                     <button type="submit" class="btn-enviar">Enviar opinión</button>
+                    <p class="form-feedback" id="formFeedback"></p>
+
                 </form>
             </div>
         </div>

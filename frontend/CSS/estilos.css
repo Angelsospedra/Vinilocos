@@ -1149,3 +1149,21 @@ header h2 {
     color: var(--black);
     transform: translateY(-2px);
 }
+
+.form-feedback {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.form-feedback.success {
+    color: #4CAF50;
+    opacity: 1;
+}
+
+.form-feedback.error {
+    color: #ff4d4d;
+    opacity: 1;
+}

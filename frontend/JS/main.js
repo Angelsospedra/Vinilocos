@@ -44,3 +44,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+const form = document.getElementById("formResena");
+const feedback = document.getElementById("formFeedback");
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault(); // 🚫 evita cambiar de página
+
+    const formData = new FormData(form);
+
+    fetch("../backend/guardar_opinion.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        feedback.textContent = "Opinión enviada correctamente ✅";
+        feedback.classList.add("success");
+
+        form.reset();
+
+        setTimeout(() => {
+            document.getElementById("modalResena").style.display = "none";
+            feedback.textContent = "";
+        }, 1500);
+    })
+    .catch(error => {
+        feedback.textContent = "Error al enviar la opinión ❌";
+        feedback.classList.add("error");
+    });
+});
