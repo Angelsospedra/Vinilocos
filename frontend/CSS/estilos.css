@@ -987,3 +987,165 @@ header h2 {
     font-size: 0.85rem;
   }
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    color: white;
+}
+
+.close-modal {
+    cursor: pointer;
+    float: right;
+    font-size: 22px;
+}
+
+.btn-resenas {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--red);
+  color: var(--vanilla);
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-resenas:hover {
+  background-color: var(--gray);
+  color: var(--black);
+  transform: scale(1.05);
+}
+
+/* ===== MODAL RESEÑAS ===== */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: #111;
+    border-radius: 16px;
+    padding: 24px 28px;
+    width: 90%;
+    max-width: 420px;
+    color: #f3f3f3;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    animation: modalFade 0.3s ease;
+}
+
+/* Animación suave */
+@keyframes modalFade {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Botón cerrar */
+.close-modal {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: white;
+}
+
+/* Títulos */
+.modal-title {
+    margin-bottom: 4px;
+    font-size: 1.4rem;
+}
+
+.modal-subtitle {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+/* Formulario */
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    color: #ccc;
+}
+
+.form-group input,
+.form-group textarea {
+    background: #1c1c1c;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 10px 12px;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--red);
+}
+
+/* Botón enviar */
+.btn-enviar {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: var(--red);
+    color: var(--vanilla);
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-enviar:hover {
+    background-color: var(--gray);
+    color: var(--black);
+    transform: translateY(-2px);
+}
