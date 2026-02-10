@@ -987,3 +987,47 @@ header h2 {
     font-size: 0.85rem;
   }
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    color: white;
+}
+
+.close-modal {
+    cursor: pointer;
+    float: right;
+    font-size: 22px;
+}
+
+.btn-resenas {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--red);
+  color: var(--vanilla);
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-resenas:hover {
+  background-color: var(--gray);
+  color: var(--black);
+  transform: scale(1.05);
+}
