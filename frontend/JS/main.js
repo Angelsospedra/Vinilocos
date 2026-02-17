@@ -67,6 +67,9 @@ form.addEventListener("submit", (e) => {
         setTimeout(() => {
             document.getElementById("modalResena").style.display = "none";
             feedback.textContent = "";
+            
+            // 🆕 ACTUALIZAR EL CARRUSEL SIN RECARGAR LA PÁGINA
+            actualizarCarruselDinamico();
         }, 1500);
     })
     .catch(error => {
@@ -74,3 +77,134 @@ form.addEventListener("submit", (e) => {
         feedback.classList.add("error");
     });
 });
+
+
+// 🆕 FUNCIÓN PARA ACTUALIZAR EL CARRUSEL DINÁMICAMENTE
+function actualizarCarruselDinamico() {
+    // Opción 1: Recargar la página (más simple, pero menos elegante)
+    // location.reload();
+
+    // Opción 2: Recargar solo el carrusel vía AJAX (recomendado)
+    fetch("../backend/get_reviews.php")
+        .then(response => response.text())
+        .then(html => {
+            // Reemplazar el contenido del carrusel
+            const carousel = document.getElementById("reviewsCarousel");
+            if (carousel) {
+                carousel.innerHTML = html;
+                
+                // Reinicializar el carrusel después de actualizar el HTML
+                reinicializarCarrusel();
+            }
+        })
+        .catch(error => {
+            console.error("Error al actualizar el carrusel:", error);
+            // Fallback: recargar la página completa
+            location.reload();
+        });
+}
+
+
+// === CARRUSEL DE RESEÑAS ===
+function inicializarCarrusel() {
+    const carousel = document.getElementById("reviewsCarousel");
+    const prevBtn = document.querySelector(".carousel-btn-prev");
+    const nextBtn = document.querySelector(".carousel-btn-next");
+    const dotsContainer = document.getElementById("carouselDots");
+    
+    if (!carousel || !prevBtn || !nextBtn || !dotsContainer) {
+        return; // Si no existe el carrusel, salir
+    }
+
+    const cards = carousel.querySelectorAll(".review-card");
+    const totalCards = cards.length;
+    let currentIndex = 0;
+    let autoScrollInterval = null;
+    const autoScrollDelay = 5000; // 5 segundos
+
+    // Limpiar dots anteriores
+    dotsContainer.innerHTML = "";
+
+    // Crear dots
+    for (let i = 0; i < totalCards; i++) {
+        const dot = document.createElement("button");
+        dot.classList.add("carousel-dot");
+        if (i === 0) dot.classList.add("active");
+        dot.setAttribute("aria-label", `Ir a reseña ${i + 1}`);
+        dot.addEventListener("click", () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+    }
+
+    const dots = dotsContainer.querySelectorAll(".carousel-dot");
+
+    function updateCarousel() {
+        const translateX = -currentIndex * 100;
+        carousel.style.transform = `translateX(${translateX}%)`;
+        
+        // Actualizar dots
+        dots.forEach((dot, index) => {
+            if (dot) {
+                dot.classList.toggle("active", index === currentIndex);
+            }
+        });
+    }
+
+    function goToSlide(index) {
+        currentIndex = index;
+        updateCarousel();
+        resetAutoScroll();
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalCards;
+        updateCarousel();
+        resetAutoScroll();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+        updateCarousel();
+        resetAutoScroll();
+    }
+
+    function startAutoScroll() {
+        autoScrollInterval = setInterval(nextSlide, autoScrollDelay);
+    }
+
+    function stopAutoScroll() {
+        if (autoScrollInterval) {
+            clearInterval(autoScrollInterval);
+            autoScrollInterval = null;
+        }
+    }
+
+    function resetAutoScroll() {
+        stopAutoScroll();
+        startAutoScroll();
+    }
+
+    // Event listeners
+    nextBtn.addEventListener("click", nextSlide);
+    prevBtn.addEventListener("click", prevSlide);
+
+    // Pausar auto-scroll al hacer hover
+    const carouselContainer = carousel.closest(".reviews-carousel-container");
+    if (carouselContainer) {
+        carouselContainer.addEventListener("mouseenter", stopAutoScroll);
+        carouselContainer.addEventListener("mouseleave", startAutoScroll);
+    }
+
+    // Iniciar auto-scroll
+    startAutoScroll();
+
+    // Inicializar posición
+    updateCarousel();
+}
+
+// 🆕 FUNCIÓN PARA REINICIALIZAR (usada después de actualizar el carrusel)
+function reinicializarCarrusel() {
+    inicializarCarrusel();
+}
+
+// Inicializar carrusel en la carga de la página
+document.addEventListener("DOMContentLoaded", inicializarCarrusel);
