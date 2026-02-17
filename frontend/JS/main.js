@@ -67,6 +67,9 @@ form.addEventListener("submit", (e) => {
         setTimeout(() => {
             document.getElementById("modalResena").style.display = "none";
             feedback.textContent = "";
+            
+            // 🆕 ACTUALIZAR EL CARRUSEL SIN RECARGAR LA PÁGINA
+            actualizarCarruselDinamico();
         }, 1500);
     })
     .catch(error => {
@@ -74,8 +77,36 @@ form.addEventListener("submit", (e) => {
         feedback.classList.add("error");
     });
 });
+
+
+// 🆕 FUNCIÓN PARA ACTUALIZAR EL CARRUSEL DINÁMICAMENTE
+function actualizarCarruselDinamico() {
+    // Opción 1: Recargar la página (más simple, pero menos elegante)
+    // location.reload();
+
+    // Opción 2: Recargar solo el carrusel vía AJAX (recomendado)
+    fetch("../backend/get_reviews.php")
+        .then(response => response.text())
+        .then(html => {
+            // Reemplazar el contenido del carrusel
+            const carousel = document.getElementById("reviewsCarousel");
+            if (carousel) {
+                carousel.innerHTML = html;
+                
+                // Reinicializar el carrusel después de actualizar el HTML
+                reinicializarCarrusel();
+            }
+        })
+        .catch(error => {
+            console.error("Error al actualizar el carrusel:", error);
+            // Fallback: recargar la página completa
+            location.reload();
+        });
+}
+
+
 // === CARRUSEL DE RESEÑAS ===
-document.addEventListener("DOMContentLoaded", () => {
+function inicializarCarrusel() {
     const carousel = document.getElementById("reviewsCarousel");
     const prevBtn = document.querySelector(".carousel-btn-prev");
     const nextBtn = document.querySelector(".carousel-btn-next");
@@ -90,6 +121,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentIndex = 0;
     let autoScrollInterval = null;
     const autoScrollDelay = 5000; // 5 segundos
+
+    // Limpiar dots anteriores
+    dotsContainer.innerHTML = "";
 
     // Crear dots
     for (let i = 0; i < totalCards; i++) {
@@ -165,4 +199,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Inicializar posición
     updateCarousel();
-});
+}
+
+// 🆕 FUNCIÓN PARA REINICIALIZAR (usada después de actualizar el carrusel)
+function reinicializarCarrusel() {
+    inicializarCarrusel();
+}
+
+// Inicializar carrusel en la carga de la página
+document.addEventListener("DOMContentLoaded", inicializarCarrusel);
