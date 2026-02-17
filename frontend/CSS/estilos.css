@@ -158,6 +158,50 @@ header h2 {
   align-items: center;
   gap: 1.5rem;
 }
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.hero-image img {
+  width: 500px;
+  height: 500px;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.hero-text {
+  width: min(60%, 900px);
+  margin: 0 auto;
+  text-align: justify;
+  color: #fff;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .hero-image img {
+    width: 320px;
+    height: 320px;
+  }
+
+  .hero-text {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text {
+    font-size: 0.9rem;
+  }
+}
  
 .btn {
   background-color: var(--red);
